@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ajax&hearts;json</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<script src="js/jquery-1.6.2.min.js"></script>
+		<script >
+			$(function()
+			{
+				showJSON("json/text_books.js");
+				$(".see_data").click(showData);
+			});
+			function showData()
+			{
+				$(".book").remove();
+				var jsonLink = $(this).attr("href");
+				showJSON(jsonLink);
+
+				return false;
+			}
+
+			function showJSON(url)
+			{
+				$.ajax(
+				{
+					type : "GET",
+					dataType : "json",
+					url : url,
+					success : parseBooks
+
+				});
+			}
+
+			function parseBooks(data)
+			{
+				$.each(data.books, addBook);
+			}
+
+			function addBook(i, item)
+			{
+				$("<tr class='book'></tr>").html("<td><img src='images/" + item.src + "' /></td>" + "<td>" + item.title + "</td>" + "<td>" + item.author + "</td>").appendTo("#books");
+			}
+
+		</script>
+	</head>
+	<body>
+	 <div id="waper">
+		<h2>AJAX&hearts;JSON</h2>
+		
+		<table id="books">
+			<tr>
+				<th>Image</th>
+				<th>Title</th>
+				<th>Author</th>
+			</tr>
+		</table>
+		<p>
+			<a class="see_data" href="json/text_books.js">Text Books</a>&nbsp; <a class="see_data" href="json/fiction.js">Fiction</a>&nbsp; <a class="see_data" href="json/kids_books.js">Kids Books</a>&nbsp;
+		</p>
+	 </div><!--end wraper-->
+	</body>
+</html>

@@ -1,0 +1,42 @@
+body
+{
+	font-family: arial;
+	font-size: 12px;
+}
+
+th
+{
+	background: #06266F;
+	color: white;
+}
+
+table
+{
+	border: 1px solid #999;
+	width: 500px;
+	float: left;
+}
+
+tr td, tr th
+{
+	padding: 5px;
+}
+
+tr td
+{
+	border: 1px solid #dedede;
+}
+
+#waper
+{
+	margin: 0 auto;
+	width: 500px;
+	padding: 0px 15px 15px 15px;
+	background-color: #EFF2FB;
+	border: 5px solid #06266F;
+}
+
+.book img
+{
+	width: 80px;
+}
